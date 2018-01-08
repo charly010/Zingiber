@@ -5,35 +5,49 @@
 {% include "@App/header.html.twig" %}
 
 
+        <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Album example</h1>
+          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+          <p>
+            <a href="#" class="btn btn-primary">Main call to action</a>
+            <a href="#" class="btn btn-secondary">Secondary action</a>
+          </p>
+        </div>
+      </section>
+
     <h1>Index des images</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Path</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for sketch in sketchs %}
-            <tr>
-                <td><a href="{{ path('sketch_show', { 'id': sketch.id }) }}">{{ sketch.id }}</a></td>
-                <td>{{ sketch.name }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('sketch_show', { 'id': sketch.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('sketch_edit', { 'id': sketch.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for sketch in sketchs %}
+        <tr>
+            <td>
+            <a href="{{ path('sketch_show', { 'id': sketch.id }) }}">{{ sketch.id }}</a></td>
+            <td><a href="{{ path('sketch_show', { 'id': sketch.id }) }}">{{ sketch.name }}</a></td>
+            <td>
+                <ul>
+                    {#
+                    <li>
+                        <a href="{{ path('sketch_show', { 'id': sketch.id }) }}">show</a>
+                    </li>#}
+                    <li>
+                        <a href="{{ path('sketch_edit', { 'id': sketch.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+      {% endfor %}
+      </tbody>
     </table>
 
     <ul>
