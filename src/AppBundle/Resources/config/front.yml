@@ -3,6 +3,6 @@ front_index:
     methods: GET
     defaults: { _controller: "AppBundle:Front:index" }
 
-image:
-    resource: '@AppBundle/Resources/config/routing/image.yml'
-    prefix:   /image
+sketch:
+    resource: '@AppBundle/Resources/config/routing/sketch.yml'
+    prefix:   /sketch

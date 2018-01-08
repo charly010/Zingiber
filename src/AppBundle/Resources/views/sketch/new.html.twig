@@ -1,6 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends "@App/base.html.twig" %}
 
 {% block body %}
+
+{% include "@App/header.html.twig" %}
+
     <h1>Image creation</h1>
 
     {{ form_start(form) }}
@@ -10,7 +13,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('image_index') }}">Back to the list</a>
+            <a href="{{ path('sketch_index') }}">Back to the list</a>
         </li>
     </ul>
+
+    {% include "@App/footer.html.twig" %}
+
 {% endblock %}

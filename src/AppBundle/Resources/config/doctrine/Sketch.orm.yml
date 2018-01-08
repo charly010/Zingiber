@@ -1,7 +1,7 @@
-AppBundle\Entity\Image:
+AppBundle\Entity\Sketch:
     type: entity
     table: null
-    repositoryClass: AppBundle\Repository\ImageRepository
+    repositoryClass: AppBundle\Repository\SketchRepository
     id:
         id:
             type: integer
@@ -12,7 +12,7 @@ AppBundle\Entity\Image:
         name:
             type: string
             length: 255
-        path:
+        image:
             type: string
-            length: 255
+            length: 255   
     lifecycleCallbacks: {  }

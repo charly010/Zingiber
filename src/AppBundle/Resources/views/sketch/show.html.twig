@@ -7,25 +7,31 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ image.id }}</td>
+                <td>{{ sketch.id }}</td>
             </tr>
             <tr>
                 <th>Name</th>
-                <td>{{ image.name }}</td>
+                <td>{{ sketch.name }}</td>
             </tr>
             <tr>
-                <th>Path</th>
-                <td>{{ image.path }}</td>
+                <th>Image</th>
+                <td>{{ sketch.image }}</td>
             </tr>
+            <tr>
+                <th>Aperçu</th>
+                <td><img src="{{app.request.basepath}}/uploads/sketchs/{{ sketch.image }}"/></td>
+            </tr>
+            
+
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('image_index') }}">Back to the list</a>
+            <a href="{{ path('sketch_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('image_edit', { 'id': image.id }) }}">Edit</a>
+            <a href="{{ path('sketch_edit', { 'id': sketch.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

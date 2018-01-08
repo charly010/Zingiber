@@ -1,7 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends "@App/base.html.twig" %}
 
 {% block body %}
-    <h1>Images list</h1>
+
+{% include "@App/header.html.twig" %}
+
+
+    <h1>Index des images</h1>
 
     <table>
         <thead>
@@ -13,18 +17,17 @@
             </tr>
         </thead>
         <tbody>
-        {% for image in images %}
+        {% for sketch in sketchs %}
             <tr>
-                <td><a href="{{ path('image_show', { 'id': image.id }) }}">{{ image.id }}</a></td>
-                <td>{{ image.name }}</td>
-                <td>{{ image.path }}</td>
+                <td><a href="{{ path('sketch_show', { 'id': sketch.id }) }}">{{ sketch.id }}</a></td>
+                <td>{{ sketch.name }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('image_show', { 'id': image.id }) }}">show</a>
+                            <a href="{{ path('sketch_show', { 'id': sketch.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('image_edit', { 'id': image.id }) }}">edit</a>
+                            <a href="{{ path('sketch_edit', { 'id': sketch.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +38,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('image_new') }}">Create a new image</a>
+            <a href="{{ path('sketch_new') }}">Create a new sketch</a>
         </li>
     </ul>
+    
+    {% include "@App/footer.html.twig" %}
+
 {% endblock %}
