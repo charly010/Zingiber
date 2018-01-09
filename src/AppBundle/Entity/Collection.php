@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Sketch;
+
 /**
  * Collection
  *
@@ -10,7 +12,11 @@ namespace AppBundle\Entity;
  */
 class Collection
 {
-    //TODO faire une relation Many 2 One avec Sketch
+    public function __construct()
+    {
+        $this->sketchs = new ArrayCollection();
+    }
+
     /**
      * @var int
      */
@@ -21,6 +27,38 @@ class Collection
      */
     private $name;
 
+     /**
+     * @ORM\OneToMany(
+     *      targetEntity="Sketch",
+     *      mappedBy="collection",
+     *      cascade={"persist", "remove", "merge"},
+     *      orphanRemoval=true,
+     * )
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $sketchs;
+
+    public function addSketch(Sketch $sketch)
+    {
+        if ($this->sketchs->contains($sketch) === false) {
+            $this->sketchs->add($sketch);
+            $sketch->setCollection($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSketch(Sketch $sketch)
+    {
+        $this->sketchs->removeElement($sketch);
+        $sketch->setCollection(null);
+        return $this;
+    }
+
+    public function getSketchs()
+    {
+        return $this->sketchs;
+    }
 
     /**
      * Get id

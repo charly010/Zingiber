@@ -16,3 +16,10 @@ AppBundle\Entity\Sketch:
             type: string
             length: 255   
     lifecycleCallbacks: {  }
+    manyToOne:
+        collection:
+            targetEntity: AppBundle\Entity\Collection
+            inversedBy: sketchs
+            joinColunm:
+                name: collection_id
+                referencedColumnName: id

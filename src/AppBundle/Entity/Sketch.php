@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -36,6 +37,34 @@ class Sketch
      * @var File
      */
     private $imageFile;
+
+     /**
+     * @ORM\ManyToOne(
+     *    targetEntity="Collection",
+     *    inversedBy="sketchs",
+     *    fetch="EAGER"
+     * )
+     * @ORM\JoinColumn(
+     *    referencedColumnName="id",
+     *    onDelete="CASCADE",
+     *    nullable=false
+     * )
+     */
+    private $collection;
+
+    public function getCollection()
+    {
+        return $this->collection;
+    }
+
+    public function setCollection(Collection $collection = null)
+    {
+        $this->collection = $collection;
+        if ($collection !== null) {
+            $collection->addSketch($this);
+        }
+        return $this;
+    }
 
     /**
      * Get id

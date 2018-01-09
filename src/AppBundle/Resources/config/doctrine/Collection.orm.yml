@@ -13,3 +13,7 @@ AppBundle\Entity\Collection:
             type: string
             length: 255
     lifecycleCallbacks: {  }
+    oneToMany:
+        sketchs:
+            targetEntity: AppBundle\Entity\Sketch
+            mappedBy: collection
