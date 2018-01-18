@@ -82,7 +82,7 @@ class SketchController extends Controller
     public function editAction(Request $request, Sketch $sketch)
     {
         $deleteForm = $this->createDeleteForm($sketch);
-        $editForm = $this->createForm('AppBundle\Form\ImageType', $sketch);
+        $editForm = $this->createForm('AppBundle\Form\SketchType', $sketch);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
