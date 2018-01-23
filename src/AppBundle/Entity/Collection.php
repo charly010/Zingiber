@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\Sketch;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Collection
@@ -58,6 +60,11 @@ class Collection
     public function getSketchs()
     {
         return $this->sketchs;
+    }
+
+    public function __toString()
+    {
+        return (string)$this->getName();
     }
 
     /**

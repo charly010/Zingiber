@@ -6,3 +6,7 @@ front_index:
 sketch:
     resource: '@AppBundle/Resources/config/routing/sketch.yml'
     prefix:   /sketch
+
+collection:
+    resource: "@AppBundle/Resources/config/routing/collection.yml"
+    prefix:   /collection

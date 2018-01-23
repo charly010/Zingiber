@@ -1,4 +1,4 @@
-app_collection:
-    resource: "@AppBundle/Resources/config/routing/collection.yml"
-    prefix:   /collection
+# app_collection:
+#     resource: "@AppBundle/Resources/config/routing/collection.yml"
+#     prefix:   /collection
 

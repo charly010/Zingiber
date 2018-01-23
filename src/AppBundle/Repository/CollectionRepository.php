@@ -10,4 +10,9 @@ namespace AppBundle\Repository;
  */
 class CollectionRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function findAllQB()
+    {
+        $queryBuilder = $this->createQueryBuilder('s');
+        return $queryBuilder;
+    }
 }

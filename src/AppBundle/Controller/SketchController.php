@@ -82,11 +82,14 @@ class SketchController extends Controller
     public function editAction(Request $request, Sketch $sketch)
     {
         $deleteForm = $this->createDeleteForm($sketch);
-        $editForm = $this->createForm('AppBundle\Form\SketchType', $sketch);
+        $queryBuilder = $this->getDoctrine()->getRepository('AppBundle:Collection')->findAllQB();
+        $editForm = $this->createEditForm('AppBundle\Form\SketchType', $sketch, $queryBuilder);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($sketch);
+            $em->flush();
 
             return $this->redirectToRoute('sketch_edit', array('id' => $sketch->getId()));
         }
@@ -130,5 +133,16 @@ class SketchController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    private function createEditForm($type, $sketch, $queryBuilder)
+    {
+        $form = $this->createForm($type, $sketch, [
+            'action'        => $this->generateUrl('sketch_edit', array('id' => $sketch->getId())),
+            'method'        => 'POST',
+            '_queryBuilder' => $queryBuilder,
+        ]);
+
+        return $form;
     }
 }

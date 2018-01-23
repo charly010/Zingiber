@@ -17,3 +17,4 @@ AppBundle\Entity\Collection:
         sketchs:
             targetEntity: AppBundle\Entity\Sketch
             mappedBy: collection
+            cascade: ["persist", "refresh"]
