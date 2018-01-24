@@ -25,6 +25,7 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Name</th>
+          <th scope="col">Collection</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -34,6 +35,10 @@
             <td>
             <a href="{{ path('sketch_show', { 'id': sketch.id }) }}">{{ sketch.id }}</a></td>
             <td><a href="{{ path('sketch_show', { 'id': sketch.id }) }}">{{ sketch.name }}</a></td>
+            <td>
+            {{ sketch.collection }}
+            {# <a href="{{ path('collection_show', { 'id': sketch.collection.id }) }}">{{ sketch.collection.id }}</a> #}
+            </td>
             <td>
                 <ul>
                     {#
