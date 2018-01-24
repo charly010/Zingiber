@@ -1,7 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends "@App/base.html.twig" %}
 
 {% block body %}
-    <h1>Collections list</h1>
+
+{% include "@App/header.html.twig" %}
+    <h1>Index des collections</h1>
 
     <table>
         <thead>
@@ -36,4 +38,7 @@
             <a href="{{ path('collection_new') }}">Create a new collection</a>
         </li>
     </ul>
+
+    {% include "@App/footer.html.twig" %}
+
 {% endblock %}

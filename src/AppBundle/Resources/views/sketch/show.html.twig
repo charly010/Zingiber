@@ -1,6 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends "@App/base.html.twig" %}
 
 {% block body %}
+
+{% include "@App/header.html.twig" %}
     <h1>Image</h1>
 
     <table>
@@ -11,7 +13,9 @@
             </tr>
             <tr>
                 <th>Name</th>
-                <td>{{ sketch.name }}</td>
+                <td>
+                <a href="{{ path('collection_show', { 'id': sketch.collection.id }) }}">{{ sketch.collection.name }}</a>
+                </td>
             </tr>
             <tr>
                 <th>Collection</th>
@@ -43,4 +47,7 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+
+    {% include "@App/footer.html.twig" %}
+
 {% endblock %}

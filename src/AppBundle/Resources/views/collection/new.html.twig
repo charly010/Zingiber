@@ -1,6 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends "@App/base.html.twig" %}
 
 {% block body %}
+
+{% include "@App/header.html.twig" %}
     <h1>Collection creation</h1>
 
     {{ form_start(form) }}
@@ -13,4 +15,7 @@
             <a href="{{ path('collection_index') }}">Back to the list</a>
         </li>
     </ul>
+
+    {% include "@App/footer.html.twig" %}
+
 {% endblock %}

@@ -1,6 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends "@App/base.html.twig" %}
 
 {% block body %}
+
+{% include "@App/header.html.twig" %}
+
     <h1>Image edit</h1>
 
     {{ form_start(edit_form) }}
@@ -18,4 +21,7 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+
+    {% include "@App/footer.html.twig" %}
+
 {% endblock %}
