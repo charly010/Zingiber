@@ -12,9 +12,14 @@ AppBundle\Entity\Sketch:
         name:
             type: string
             length: 255
+            nullable: false
         image:
             type: string
-            length: 255   
+            length: 255
+        page:
+            type: integer
+            length: 255
+            nullable: true # à changer
     lifecycleCallbacks: {  }
     manyToOne:
         collection:

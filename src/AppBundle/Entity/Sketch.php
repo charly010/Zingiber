@@ -27,6 +27,11 @@ class Sketch
     private $name;
 
     /**
+     * @var integer
+     */
+    private $page;
+
+    /**
      * @ORM\Column(type="string", length=255)
      * @var string
      */
@@ -98,6 +103,30 @@ class Sketch
     public function getName()
     {
         return $this->name;
+    }
+
+        /**
+     * Set page
+     *
+     * @param integer $page
+     *
+     * @return Image
+     */
+    public function setPage($page)
+    {
+        $this->page = $page;
+
+        return $this;
+    }
+
+    /**
+     * Get page
+     *
+     * @return integer
+     */
+    public function getPage()
+    {
+        return $this->page;
     }
 
     public function setImageFile(File $image = null)
