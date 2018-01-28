@@ -5,11 +5,18 @@
 {% include "@App/header.html.twig" %}
     <h1>Index des collections</h1>
 
-    <table>
+    <ul>
+        <li>
+            <a href="{{ path('collection_new') }}" class="btn btn-primary" role="button">Nouvelle collection</a>
+        </li>
+    </ul>
+
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Titre</th>
+                <th>Nombre</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,12 +24,15 @@
         {% for collection in collections %}
             <tr>
                 <td><a href="{{ path('collection_show', { 'id': collection.id }) }}">{{ collection.id }}</a></td>
-                <td>{{ collection.name }}</td>
+                <td>
+                    <a href="{{ path('collection_show', { 'id': collection.id }) }}">{{ collection.name }}</a>
+                </td>
+                <td>{{ collection.sketchs|length }}</td>
                 <td>
                     <ul>
-                        <li>
+                        {# <li>
                             <a href="{{ path('collection_show', { 'id': collection.id }) }}">show</a>
-                        </li>
+                        </li> #}
                         <li>
                             <a href="{{ path('collection_edit', { 'id': collection.id }) }}">edit</a>
                         </li>
@@ -32,12 +42,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('collection_new') }}">Create a new collection</a>
-        </li>
-    </ul>
 
     {% include "@App/footer.html.twig" %}
 
