@@ -7,12 +7,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Collection
+ * Serie
  *
- * @ORM\Table(name="collection")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CollectionRepository")
+ * @ORM\Table(name="serie")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SerieRepository")
  */
-class Collection
+class Serie
 {
     public function __construct()
     {
@@ -82,7 +82,7 @@ class Collection
      *
      * @param string $name
      *
-     * @return Collection
+     * @return Serie
      */
     public function setName($name)
     {

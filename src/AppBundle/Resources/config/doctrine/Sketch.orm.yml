@@ -22,9 +22,9 @@ AppBundle\Entity\Sketch:
             nullable: true # à changer
     lifecycleCallbacks: {  }
     manyToOne:
-        collection:
-            targetEntity: AppBundle\Entity\Collection
+        serie:
+            targetEntity: AppBundle\Entity\Serie
             inversedBy: sketchs
             joinColunm:
-                name: collection_id
+                name: serie_id
                 referencedColumnName: id

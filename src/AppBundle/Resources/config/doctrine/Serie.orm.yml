@@ -1,7 +1,7 @@
-AppBundle\Entity\Collection:
+AppBundle\Entity\Serie:
     type: entity
     table: null
-    repositoryClass: AppBundle\Repository\CollectionRepository
+    repositoryClass: AppBundle\Repository\SerieRepository
     id:
         id:
             type: integer
@@ -16,5 +16,5 @@ AppBundle\Entity\Collection:
     oneToMany:
         sketchs:
             targetEntity: AppBundle\Entity\Sketch
-            mappedBy: collection
+            mappedBy: serie
             cascade: ["persist", "refresh"]

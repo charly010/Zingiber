@@ -7,6 +7,6 @@ sketch:
     resource: '@AppBundle/Resources/config/routing/sketch.yml'
     prefix:   /sketch
 
-collection:
-    resource: "@AppBundle/Resources/config/routing/collection.yml"
-    prefix:   /collection
+serie:
+    resource: "@AppBundle/Resources/config/routing/serie.yml"
+    prefix:   /serie

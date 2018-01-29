@@ -1,0 +1,24 @@
+serie_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Serie:index" }
+    methods:  GET
+
+serie_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Serie:show" }
+    methods:  GET
+
+serie_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Serie:new" }
+    methods:  [GET, POST]
+
+serie_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Serie:edit" }
+    methods:  [GET, POST]
+
+serie_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Serie:delete" }
+    methods:  DELETE

@@ -2,13 +2,14 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Collection;
+//use AppBundle\Entity\Serie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 //use Symfony\Component\Form\Extension\Core\Type\EntityType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class SketchType extends AbstractType
@@ -20,15 +21,16 @@ class SketchType extends AbstractType
     {
         $builder
         ->add('name', TextType::class)
+        ->add('page', IntegerType::class)
         ->add('imageFile', FileType::class, [
             'required' => false,
-        ])
-        ->add('collection', EntityType::class, [
-            'class' => Collection::class,
-            'choice_label' => 'name',
-            'required' => true,
-            'query_builder' => $options['_queryBuilder'],
         ]);
+        // ->add('serie', EntityType::class, [
+        //     'class' => Serie::class,
+        //     'choice_label' => 'name',
+        //     'required' => true,
+        //     'query_builder' => $options['_queryBuilder'],
+        // ]);
     }
     
     /**
@@ -39,7 +41,7 @@ class SketchType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Sketch'
         ));
-        $resolver->setRequired([ '_queryBuilder' ]);
+        //$resolver->setRequired([ '_queryBuilder' ]);
     }
 
     /**

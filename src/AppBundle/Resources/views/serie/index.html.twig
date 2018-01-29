@@ -3,11 +3,11 @@
 {% block body %}
 
 {% include "@App/header.html.twig" %}
-    <h1>Index des collections</h1>
+    <h1>Index des series</h1>
 
     <ul>
         <li>
-            <a href="{{ path('collection_new') }}" class="btn btn-primary" role="button">Nouvelle collection</a>
+            <a href="{{ path('serie_new') }}" class="btn btn-primary" role="button">Nouvelle serie</a>
         </li>
     </ul>
 
@@ -21,20 +21,20 @@
             </tr>
         </thead>
         <tbody>
-        {% for collection in collections %}
+        {% for serie in series %}
             <tr>
-                <td><a href="{{ path('collection_show', { 'id': collection.id }) }}">{{ collection.id }}</a></td>
+                <td><a href="{{ path('serie_show', { 'id': serie.id }) }}">{{ serie.id }}</a></td>
                 <td>
-                    <a href="{{ path('collection_show', { 'id': collection.id }) }}">{{ collection.name }}</a>
+                    <a href="{{ path('serie_show', { 'id': serie.id }) }}">{{ serie.name }}</a>
                 </td>
-                <td>{{ collection.sketchs|length }}</td>
+                <td>{{ serie.sketchs|length }}</td>
                 <td>
                     <ul>
                         {# <li>
-                            <a href="{{ path('collection_show', { 'id': collection.id }) }}">show</a>
+                            <a href="{{ path('serie_show', { 'id': serie.id }) }}">show</a>
                         </li> #}
                         <li>
-                            <a href="{{ path('collection_edit', { 'id': collection.id }) }}">edit</a>
+                            <a href="{{ path('serie_edit', { 'id': serie.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>

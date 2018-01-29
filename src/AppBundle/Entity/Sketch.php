@@ -2,7 +2,7 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Collection;
+use AppBundle\Entity\Serie;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -10,7 +10,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * Sketch
  *
- * @ORM\Table(name="sktech")
+ * @ORM\Table(name="sketch")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SketchRepository")
  * @Vich\Uploadable
  */
@@ -45,7 +45,7 @@ class Sketch
 
      /**
      * @ORM\ManyToOne(
-     *    targetEntity="Collection",
+     *    targetEntity="Serie",
      *    inversedBy="sketchs",
      *    fetch="EAGER"
      * )
@@ -55,18 +55,18 @@ class Sketch
      *    nullable=false
      * )
      */
-    private $collection;
+    private $serie;
 
-    public function getCollection()
+    public function getSerie()
     {
-        return $this->collection;
+        return $this->serie;
     }
 
-    public function setCollection(Collection $collection = null)
+    public function setSerie(Serie $serie = null)
     {
-        $this->collection = $collection;
-        if ($collection !== null) {
-            $collection->addSketch($this);
+        $this->serie = $serie;
+        if ($serie !== null) {
+            $serie->addSketch($this);
         }
         return $this;
     }

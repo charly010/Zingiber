@@ -3,27 +3,27 @@
 {% block body %}
 
 {% include "@App/header.html.twig" %}
-    <h1>Collection</h1>
+    <h1>Serie</h1>
 
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ collection.id }}</td>
+                <td>{{ serie.id }}</td>
             </tr>
             <tr>
                 <th>Name</th>
-                <td>{{ collection.name }}</td>
+                <td>{{ serie.name }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('collection_index') }}">Back to the list</a>
+            <a href="{{ path('serie_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('collection_edit', { 'id': collection.id }) }}">Edit</a>
+            <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
