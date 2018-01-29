@@ -20,8 +20,12 @@ class SketchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('name', TextType::class)
-        ->add('page', IntegerType::class)
+        ->add('title', TextType::class, [
+            'label' => 'Titre',
+        ])
+        ->add('page', IntegerType::class, [
+            'label' => 'Numéro de page',
+        ])
         ->add('imageFile', FileType::class, [
             'required' => false,
         ]);

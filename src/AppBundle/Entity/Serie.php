@@ -27,7 +27,7 @@ class Serie
     /**
      * @var string
      */
-    private $name;
+    private $title;
 
      /**
      * @ORM\OneToMany(
@@ -78,27 +78,27 @@ class Serie
     }
 
     /**
-     * Set name
+     * Set title
      *
-     * @param string $name
+     * @param string $title
      *
      * @return Serie
      */
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get title
      *
      * @return string
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
 }
 

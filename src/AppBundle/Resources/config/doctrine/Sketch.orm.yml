@@ -9,7 +9,7 @@ AppBundle\Entity\Sketch:
             generator:
                 strategy: AUTO
     fields:
-        name:
+        title:
             type: string
             length: 255
             nullable: false

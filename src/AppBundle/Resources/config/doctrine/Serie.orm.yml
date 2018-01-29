@@ -9,7 +9,7 @@ AppBundle\Entity\Serie:
             generator:
                 strategy: AUTO
     fields:
-        name:
+        title:
             type: string
             length: 255
     lifecycleCallbacks: {  }

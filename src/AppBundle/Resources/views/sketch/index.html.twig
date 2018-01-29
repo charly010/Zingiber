@@ -23,7 +23,7 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Name</th>
+          <th scope="col">Titre</th>
           <th scope="col">Collection</th>
           <th scope="col">Actions</th>
         </tr>
@@ -33,9 +33,9 @@
         <tr>
             <td>
             <a href="{{ path('sketch_show', { 'id': sketch.id }) }}">{{ sketch.id }}</a></td>
-            <td><a href="{{ path('sketch_show', { 'id': sketch.id }) }}">{{ sketch.name }}</a></td>
+            <td><a href="{{ path('sketch_show', { 'id': sketch.id }) }}">{{ sketch.title }}</a></td>
             <td>
-            <a href="{{ path('collection_show', { 'id': sketch.collection.id }) }}">{{ sketch.collection.name }}</a>
+            <a href="{{ path('collection_show', { 'id': sketch.collection.id }) }}">{{ sketch.collection.title }}</a>
             </td>
             <td>
                 <ul>
