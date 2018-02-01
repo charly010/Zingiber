@@ -66,9 +66,6 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
-parameters:
-    sketchs_directory: '%kernel.project_dir%/web/uploads/sketchs'
-
 vich_uploader:
     db_driver: orm
     mappings:
