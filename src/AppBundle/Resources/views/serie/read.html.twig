@@ -25,20 +25,10 @@
         <li>
             <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Edit</a>
         </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
     </ul>
 
 
     <h1>Reading...</h1>
-
-    {#
-
-    todo
-    https://symfony.com/doc/master/bundles/EasyAdminBundle/integration/vichuploaderbundle.html
 
     <table>
         <tbody>
@@ -47,28 +37,21 @@
                 <td>{{ sketch.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
-                <td>
-                <a href="{{ path('serie_show', { 'id': sketch.serie.id }) }}">{{ sketch.serie.name }}</a>
-                </td>
-            </tr>
-            <tr>
-                <th>Collection</th>
-                <td>{{ sketch.serie }}</td>
-            </tr>
-            <tr>
                 <th>Image</th>
                 <td>{{ sketch.image }}</td>
             </tr>
             <tr>
                 <th>Aperçu</th>
-                <td><img src="{{app.request.basepath}}/uploads/sketchs/{{ sketch.image }}"/></td>
+                <td>
+                    <a href="{{ path('serie_read', { 'id': sketch.serie.id, 'page': nextPage }) }}">
+                    <img src="{{app.request.basepath}}/uploads/sketchs/{{ sketch.image }}"/>
+                    </a>
+                </td>
             </tr>
-            
         </tbody>
     </table>
 
-    #}
+
 
     {% include "@App/footer.html.twig" %}
 

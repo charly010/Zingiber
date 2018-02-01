@@ -58,12 +58,15 @@ class SerieController extends Controller
     public function readAction(Serie $serie, $page)
     {
         //$nbPages = $serie->getPages()->count(); // fonction à créer
+        $sketch = $this->getDoctrine()->getRepository('AppBundle:Sketch')->findPageFromSerie($serie, $page);
+
         $nextPage = $page + 1;
 
         return $this->render('@App/serie/read.html.twig', array(
-            'serie' => $serie,
-            'current_page' => $page,
-            'next_page' => $nextPage,
+            'serie' => $serie, // je n'ai pas besoin de la charger
+            'sketch' => $sketch,
+            //'current_page' => $page,
+            'nextPage' => $nextPage,
         ));
     }
 
