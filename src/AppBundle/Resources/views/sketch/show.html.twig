@@ -14,12 +14,12 @@
             <tr>
                 <th>Name</th>
                 <td>
-                <a href="{{ path('serie_show', { 'id': sketch.serie.id }) }}">{{ sketch.serie.name }}</a>
+                <a href="{{ path('serie_show', { 'id': sketch.serie.id }) }}">{{ sketch.serie.title }}</a>
                 </td>
             </tr>
             <tr>
                 <th>Collection</th>
-                <td>{{ sketch.serie }}</td>
+                <td>{{ sketch.serie.title }}</td>
             </tr>
             <tr>
                 <th>Image</th>
@@ -30,7 +30,6 @@
                 <td><img src="{{app.request.basepath}}/uploads/sketchs/{{ sketch.image }}"/></td>
             </tr>
             
-
         </tbody>
     </table>
 

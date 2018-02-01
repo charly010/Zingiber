@@ -18,7 +18,7 @@ class SerieType extends AbstractType
         $builder
             ->add('title', TextType::class, [
                 'label' => 'Titre',
-            ])
+            ]);
             // ->add('sketchs', CollectionType::class, [
             //     'entry_type' => SketchType::class,
                 // 'allow_add' => true,
@@ -26,14 +26,14 @@ class SerieType extends AbstractType
                 // 'required' => false,
             // ]);
             //->add('sketchs', SketchType::class);
-            ->add('sketchs', CollectionType::class, [
-                'entry_type' => SketchType::class,
-                //'type' => new SketchType();
-                'label' => 'Sketch',
-                'allow_add' => true,
-                'allow_delete' => true,
-                'required' => false,
-            ]);
+            // ->add('sketchs', CollectionType::class, [
+            //     'entry_type' => SketchType::class,
+            //     //'type' => new SketchType();
+            //     'label' => 'Sketch',
+            //     'allow_add' => true,
+            //     'allow_delete' => true,
+            //     'required' => false,
+            // ]);
 
             // https://github.com/braincrafted/bootstrap-bundle
         //     $form->add('sketchs', BootstrapCollectionType::class [

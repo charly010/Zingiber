@@ -1,7 +1,7 @@
 sketch_index:
-    path:     /
-    defaults: { _controller: "AppBundle:Sketch:index" }
-    methods:  GET
+   path:     /
+   defaults: { _controller: "AppBundle:Sketch:index" }
+   methods:  GET
 
 sketch_show:
     path:     /{id}/show
@@ -9,9 +9,9 @@ sketch_show:
     methods:  GET
 
 sketch_new:
-    path:     /new
-    defaults: { _controller: "AppBundle:Sketch:new" }
-    methods:  [GET, POST]
+   path:     /new
+   defaults: { _controller: "AppBundle:Sketch:new" }
+   methods:  [GET, POST]
 
 sketch_edit:
     path:     /{id}/edit
@@ -19,6 +19,6 @@ sketch_edit:
     methods:  [GET, POST]
 
 sketch_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "AppBundle:Sketch:delete" }
-    methods:  DELETE
+   path:     /{id}/delete
+   defaults: { _controller: "AppBundle:Sketch:delete" }
+   methods:  DELETE

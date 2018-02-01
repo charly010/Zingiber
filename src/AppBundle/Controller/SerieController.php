@@ -52,6 +52,22 @@ class SerieController extends Controller
     }
 
     /**
+     * Reads a serie entity.
+     *
+     */
+    public function readAction(Serie $serie, $page)
+    {
+        //$nbPages = $serie->getPages()->count(); // fonction à créer
+        $nextPage = $page + 1;
+
+        return $this->render('@App/serie/read.html.twig', array(
+            'serie' => $serie,
+            'current_page' => $page,
+            'next_page' => $nextPage,
+        ));
+    }
+
+    /**
      * Finds and displays a serie entity.
      *
      */

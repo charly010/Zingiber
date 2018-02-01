@@ -11,20 +11,6 @@
         <p>{{ form_label(form.title) }}</p>
         <p>{{ form_widget(form.title) }}</p>
 
-        <h2>Sketchs</h2>
-        <p>{% for s in form.sketchs %}
-
-        <p>{{ form_label(s.title) }}</p>
-        <p>{{ form_widget(s.title) }}</p>
-
-        <p>{{ form_label(s.page) }}</p>
-        <p>{{ form_widget(s.page) }}</p>
-
-        <p>{{ form_label(s.imageFile) }}</p>
-        <p>{{ form_widget(s.imageFile) }}</p>
-
-        {% endfor %}
-
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 

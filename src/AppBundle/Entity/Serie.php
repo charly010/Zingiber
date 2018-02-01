@@ -44,7 +44,7 @@ class Serie
     {
         if ($this->sketchs->contains($sketch) === false) {
             $this->sketchs->add($sketch);
-            $sketch->setCollection($this);
+            $sketch->setSerie($this);
         }
 
         return $this;
