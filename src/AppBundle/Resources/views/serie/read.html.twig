@@ -22,6 +22,7 @@
 
     <h1>Reading... {{ sketch.serie.title }}</h1>
 
+    {#
     <table>
         <tbody>
             <tr>
@@ -36,12 +37,19 @@
                 <th>Aperçu</th>
                 <td>
                     <a href="{{ path('serie_read', { 'id': sketch.serie.id, 'page': nextPage }) }}">
-                    <img src="{{app.request.basepath}}/uploads/sketchs/{{ sketch.image }}"/>
+                    <img src="{{app.request.basepath}}/uploads/sketchs/{{ sketch.image }}" class="img-fluid" alt="Responsive image"/>
                     </a>
                 </td>
             </tr>
         </tbody>
     </table>
+    #}
+
+    <div class="text-center">
+        <a href="{{ path('serie_read', { 'id': sketch.serie.id, 'page': nextPage }) }}">
+            <img src="{{app.request.basepath}}/uploads/sketchs/{{ sketch.image }}" class="img-fluid" alt="Responsive image"/>
+        </a>
+    </div>    
 
     <ul>
         <li>

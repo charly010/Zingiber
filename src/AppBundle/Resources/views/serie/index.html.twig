@@ -17,6 +17,7 @@
                 <th>Id</th>
                 <th>Titre</th>
                 <th>Nombre de pages</th>
+                <th>Aperçu</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -29,13 +30,17 @@
                 </td>
                 <td>{{ serie.sketchs|length }}</td>
                 <td>
+                    <a href="{{ path('serie_read', { 'id': serie.id, 'page': 1 }) }}">
+                        <img src="{{app.request.basepath}}/uploads/sketchs/{{ serie.sketchs|first.image }}" class="img-thumbnail" alt="Responsive image"/></td>
+                    </a>
+                <td>
                     <ul>
-                        <li>
+                        {#<li>
                             <a href="{{ path('serie_read', { 'id': serie.id, 'page': 1 }) }}">read</a>
                         </li>
-                        {# <li>
+                        <li>
                             <a href="{{ path('serie_show', { 'id': serie.id }) }}">show</a>
-                        </li> #}
+                        </li>#}
                         <li>
                             <a href="{{ path('serie_edit', { 'id': serie.id }) }}">edit</a>
                         </li>

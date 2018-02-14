@@ -60,7 +60,8 @@ class SerieController extends Controller
         $nbPages = $serie->getSketchs()->count();
 
         if ($nbPages === intval($page)){
-            $nextPage = $page;
+            //$nextPage = $page;
+            $nextPage = 1;
         }
         else {
             $nextPage = $page + 1;
