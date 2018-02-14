@@ -41,6 +41,9 @@
             <a href="{{ path('sketch_edit', { 'id': sketch.id }) }}">Edit</a>
         </li>
         <li>
+            <a href="{{ path('sketch_new') }}">Create a new sketch</a>
+        </li>
+        <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
