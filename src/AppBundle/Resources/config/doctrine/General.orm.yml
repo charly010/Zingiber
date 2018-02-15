@@ -1,0 +1,14 @@
+AppBundle\Entity\General:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\GeneralRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nbFilms:
+            type: integer
+    lifecycleCallbacks: {  }

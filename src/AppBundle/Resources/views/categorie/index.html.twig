@@ -1,0 +1,45 @@
+{% extends "@App/base.html.twig" %}
+
+{% block body %}
+
+{% include "@App/header.html.twig" %}
+    <h1>Index des categories</h1>
+
+    <ul>
+        <li>
+            <a href="{{ path('categorie_new') }}" class="btn btn-primary" role="button">Nouvelle categorie</a>
+        </li>
+    </ul>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td><a href="{{ path('serie_show', { 'id': categorie.id }) }}">{{ categorie.id }}</a></td>
+                <td>
+                   {{ categorie.title }}
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('categorie_show', { 'id': categorie.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('categorie_edit', { 'id': categorie.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include "@App/footer.html.twig" %}
+
+{% endblock %}

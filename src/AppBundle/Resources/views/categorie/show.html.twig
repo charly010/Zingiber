@@ -3,38 +3,32 @@
 {% block body %}
 
 {% include "@App/header.html.twig" %}
-    <h1>Serie</h1>
+    <h1>Categorie</h1>
 
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ serie.id }}</td>
+                <td>{{ categorie.id }}</td>
             </tr>
             <tr>
                 <th>Titre</th>
-                <td>{{ serie.title }}</td>
+                <td>{{ categorie.title }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('serie_index') }}">Back to the list</a>
+            <a href="{{ path('categorie_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Edit</a>
+            <a href="{{ path('categorie_edit', { 'id': categorie.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
-
-    <ul>
-        <li>
-            <a href="{{ path('sketch_new') }}">Create a new sketch</a>
         </li>
     </ul>
 

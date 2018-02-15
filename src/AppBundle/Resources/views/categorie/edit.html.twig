@@ -3,7 +3,7 @@
 {% block body %}
 
 {% include "@App/header.html.twig" %}
-    <h1>Serie edit</h1>
+    <h1>Categorie edit</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
@@ -12,7 +12,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('serie_index') }}">Back to the list</a>
+            <a href="{{ path('categorie_index') }}">Back to the list</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

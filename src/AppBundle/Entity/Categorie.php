@@ -2,23 +2,15 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Sketch;
+use AppBundle\Entity\Film;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Serie
- *
- * @ORM\Table(name="serie")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\SerieRepository")
+ * Categorie
  */
-class Serie
+class Categorie
 {
-    public function __construct()
-    {
-        $this->sketchs = new ArrayCollection();
-    }
-
     /**
      * @var int
      */
@@ -29,43 +21,52 @@ class Serie
      */
     private $title;
 
-     /**
+    /**
      * @ORM\OneToMany(
-     *      targetEntity="Sketch",
+     *      targetEntity="Film",
      *      mappedBy="collection",
      *      cascade={"persist", "remove", "merge"},
      *      orphanRemoval=true,
      * )
      * @ORM\JoinColumn(nullable=false)
      */
-    private $sketchs;
+    private $films;
 
-    public function addSketch(Sketch $sketch)
+    public function __construct()
     {
-        if ($this->sketchs->contains($sketch) === false) {
-            $this->sketchs->add($sketch);
-            $sketch->setSerie($this);
+        $this->films = new ArrayCollection();
+    }
+
+    public function addFilm(Film $film)
+    {
+        if ($this->films === null) {
+            $this->films = new ArrayCollection();
+        }
+
+        if ($this->films->contains($film) === false) {
+            $this->films->add($film);
+            $film->setCategorie($this);
         }
 
         return $this;
     }
 
-    public function removeSketch(Sketch $sketch)
+    public function removeFilm(Film $film)
     {
-        $this->sketchs->removeElement($sketch);
-        $sketch->setCollection(null);
+        $this->films->removeElement($film);
+        $film->setCategorie(null);
         return $this;
     }
 
-    public function getSketchs()
+    public function getFilms()
     {
-        return $this->sketchs;
+        return $this->films;
     }
 
-    public function __toString()
-    {
-        return (string)$this->getName();
-    }
+    // public function __toString()
+    // {
+    //     return (string)$this->getName();
+    // }
 
     /**
      * Get id
@@ -82,7 +83,7 @@ class Serie
      *
      * @param string $title
      *
-     * @return Serie
+     * @return Categorie
      */
     public function setTitle($title)
     {

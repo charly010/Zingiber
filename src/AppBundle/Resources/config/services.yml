@@ -1,0 +1,9 @@
+services:    
+    app.listener.film:
+        class: Zingiger\AppBundle\Listener\FilmListener
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }
+
+    app.service.filmcount:
+        class: Zingiger\AppBundle\Service\FilmCount
+        arguments: ["@doctrine.orm.entity_manager"]

@@ -1,0 +1,24 @@
+AppBundle\Entity\Film:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\FilmRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: text
+    lifecycleCallbacks: {  }
+    manyToOne:
+        categorie:
+            targetEntity: AppBundle\Entity\Categorie
+            inversedBy: films
+            joinColunm:
+                name: categorie_id
+                referencedColumnName: id

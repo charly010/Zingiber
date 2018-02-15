@@ -3,10 +3,10 @@ front_index:
     methods: GET
     defaults: { _controller: "AppBundle:Front:index" }
 
-sketch:
-    resource: '@AppBundle/Resources/config/routing/sketch.yml'
-    prefix:   /sketch
+film:
+    resource: '@AppBundle/Resources/config/routing/film.yml'
+    prefix:   /film
 
-serie:
-    resource: "@AppBundle/Resources/config/routing/serie.yml"
-    prefix:   /serie
+categorie:
+    resource: "@AppBundle/Resources/config/routing/categorie.yml"
+    prefix:   /categorie

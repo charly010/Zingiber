@@ -1,7 +1,7 @@
-AppBundle\Entity\Serie:
+AppBundle\Entity\Categorie:
     type: entity
     table: null
-    repositoryClass: AppBundle\Repository\SerieRepository
+    repositoryClass: AppBundle\Repository\CategorieRepository
     id:
         id:
             type: integer
@@ -12,9 +12,10 @@ AppBundle\Entity\Serie:
         title:
             type: string
             length: 255
+            unique: true
     lifecycleCallbacks: {  }
     oneToMany:
-        sketchs:
-            targetEntity: AppBundle\Entity\Sketch
-            mappedBy: serie
-            cascade: ["persist", "refresh"]
+    films:
+        targetEntity: AppBundle\Entity\Film
+        mappedBy: categorie
+        cascade: ["persist", "refresh"]
