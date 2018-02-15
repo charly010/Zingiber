@@ -33,10 +33,10 @@ class FilmType extends AbstractType
             'choice_label' => 'title',
             'required' => true,
             'query_builder' => $options['_queryBuilder'],
-        ])
-        ->add('imageFile', FileType::class, [
-            'required' => false,
         ]);
+        // ->add('imageFile', FileType::class, [
+        //     'required' => false,
+        // ]);
     }
     
     /**

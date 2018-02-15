@@ -23,10 +23,19 @@ class FilmController extends Controller
         $adminEmail = $this->container->getParameter('admin_email');
         $em = $this->getDoctrine()->getManager();
         $films = $em->getRepository('AppBundle:Film')->findAll();
+        $general = $em->getRepository('AppBundle:General')->findAll()[0];
+
+        if (!empty($general)) {
+            $nbFilms = $general->getNbFilms();
+        }
+        else {
+            $nbFilms = 0;
+        }
 
         return $this->render('@App/film/index.html.twig', array(
             'films' => $films,
             'admin_email' => $adminEmail,
+            'nb_films' => $nbFilms,
         ));
     }
 
@@ -44,26 +53,27 @@ class FilmController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            $file = $film->getImageFile();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move(
-                $this->getParameter('images_directory'),
-                $fileName
-            );
-            $sketch->setImage($fileName);
+            // $file = $film->getImageFile();
+            // if ($file !== null) {
+            //     $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            //     $file->move(
+            //         $this->getParameter('images_directory'),
+            //         $fileName
+            //     );
+            //     $sketch->setImage($fileName);
+            // }
 
             $em = $this->getDoctrine()->getManager();
             // appeller le service
             //$this->get('app.service.filmcount')->count($film, true);
             
             // methode sans service
-            $general = $em->getRepository('AppBundle:General')->findAll();
+            $general = $em->getRepository('AppBundle:General')->findAll()[0];
             if (empty($general)) {
                 $general = new General;
             }
             $nbFilms = $general->getNbFilms();
             $general->setNbFilms($nbFilms + 1);
-            dump($general);
             $em->persist($general);
 
             $em->persist($film);
@@ -106,16 +116,13 @@ class FilmController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
             /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            $file = $film->getImageFile();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            //dump($fileName); // ok
-            //dump($this->getParameter('images_directory'));
-            //die(); 
-            $file->move(
-                $this->getParameter('images_directory'),
-                $fileName
-            );
-            $sketch->setImage($fileName);
+            // $file = $film->getImageFile();
+            // $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            // $file->move(
+            //     $this->getParameter('images_directory'),
+            //     $fileName
+            // );
+            // $sketch->setImage($fileName);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($film);
@@ -142,6 +149,18 @@ class FilmController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            // methode sans service
+            $general = $em->getRepository('AppBundle:General')->findAll()[0];
+            
+            if (empty($general)) {
+                $general = new General;
+            }
+
+            $nbFilms = $general->getNbFilms();
+            $general->setNbFilms($nbFilms - 1);
+            $em->persist($general);
+
             $em->remove($film);
             $em->flush();
         }
