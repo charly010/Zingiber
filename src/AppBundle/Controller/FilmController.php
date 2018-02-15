@@ -20,12 +20,13 @@ class FilmController extends Controller
      */
     public function indexAction()
     {
+        $adminEmail = $this->container->getParameter('admin_email');
         $em = $this->getDoctrine()->getManager();
-
         $films = $em->getRepository('AppBundle:Film')->findAll();
 
         return $this->render('@App/film/index.html.twig', array(
             'films' => $films,
+            'admin_email' => $adminEmail,
         ));
     }
 
