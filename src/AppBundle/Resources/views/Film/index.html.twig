@@ -13,6 +13,7 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Titre</th>
+          <th scope="col">Catégorie</th>
           <th scope="col">Description</th>
           <th scope="col">Actions</th>
         </tr>
@@ -23,9 +24,17 @@
             <td>
             <a href="{{ path('film_show', { 'id': film.id }) }}">{{ film.id }}</a></td>
             <td><a href="{{ path('film_show', { 'id': film.id }) }}">{{ film.title }}</a></td>
+            <td>
+              <a href="{{ path('categorie_show', { 'id': film.categorie.id }) }}">
+                {{ film.categorie.title }}
+              </a>
+            </td>
             <td>{{ film.description }}</td>
             <td>
                 <ul>
+                    <li>
+                        <a href="{{ path('film_show', { 'id': film.id }) }}">show</a>
+                    </li>
                     <li>
                         <a href="{{ path('film_edit', { 'id': film.id }) }}">edit</a>
                     </li>

@@ -16,7 +16,7 @@ class FilmController extends Controller
 {
     /**
      * Lists all Film entities.
-     *
+     * Duplicate in FrontController
      */
     public function indexAction()
     {

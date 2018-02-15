@@ -57,21 +57,20 @@ class CategorieController extends Controller
     public function showAction(Request $request, Categorie $categorie)
     {
         $deleteForm = $this->createDeleteForm($categorie);
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('AppBundle:Film')->findAllByCategorieQB($categorie);
+        //$em = $this->getDoctrine()->getManager();
+        //$query = $em->getRepository('AppBundle:Film')->findAllByCategorieQB($categorie);
 
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $query, /* query NOT result */
-            $request->query->getInt('page', 1)/*page number*/,
-            10/*limit per page*/
-        );
+        // $paginator  = $this->get('knp_paginator');
+        // $pagination = $paginator->paginate(
+        //     $query,  query NOT result 
+        //     $request->query->getInt('page', 1)/*page number*/,
+        //     10/*limit per page*/
+        // );
 
         return $this->render('@App/categorie/show.html.twig', array(
             'categorie' => $categorie,
             'delete_form' => $deleteForm->createView(),
-            //'films' => $films,
-            'pagination' => $pagination,
+            //'pagination' => $pagination,
         ));
     }
 
