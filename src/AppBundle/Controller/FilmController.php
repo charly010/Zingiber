@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Film;
+use AppBundle\Entity\General;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\FilmType;
@@ -40,13 +41,20 @@ class FilmController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            // appeller le service
-            $this->get('app.service.filmcount')->count($film, true);
-            
-
-            dump($film); die;
             $em = $this->getDoctrine()->getManager();
+            // appeller le service
+            //$this->get('app.service.filmcount')->count($film, true);
+            
+            // methode sans service
+            $general = $em->getRepository('AppBundle:General')->findAll();
+            if (empty($general)) {
+                $general = new General;
+            }
+            $nbFilms = $general->getNbFilms();
+            $general->setNbFilms($nbFilms + 1);
+            dump($general);
+            $em->persist($general);
+
             $em->persist($film);
             $em->flush();
 
