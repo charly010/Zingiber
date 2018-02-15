@@ -23,7 +23,16 @@
                 <th>Description</th>
                 <td>{{ film.description }}</td>
             </tr>
-            
+            <tr>
+                <th>Image</th>
+                <td>{{ film.image }}</td>
+            </tr>
+            <tr>
+                <th>Aperçu</th>
+                <td>
+                    <img src="{{app.request.basepath}}/uploads/images/{ film.image }}" class="img-fluid" alt="Responsive image"/>
+                </td>
+            </tr>
         </tbody>
     </table>
 

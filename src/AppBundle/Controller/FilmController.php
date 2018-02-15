@@ -42,6 +42,16 @@ class FilmController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $film->getImageFile();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('images_directory'),
+                $fileName
+            );
+            $sketch->setImage($fileName);
+
             $em = $this->getDoctrine()->getManager();
             // appeller le service
             //$this->get('app.service.filmcount')->count($film, true);
@@ -94,6 +104,19 @@ class FilmController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $film->getImageFile();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            //dump($fileName); // ok
+            //dump($this->getParameter('images_directory'));
+            //die(); 
+            $file->move(
+                $this->getParameter('images_directory'),
+                $fileName
+            );
+            $sketch->setImage($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($film);
             $em->flush();

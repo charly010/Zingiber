@@ -22,7 +22,7 @@
         <tbody>
         {% for categorie in categories %}
             <tr>
-                <td><a href="{{ path('serie_show', { 'id': categorie.id }) }}">{{ categorie.id }}</a></td>
+                <td><a href="{{ path('categorie_show', { 'id': categorie.id }) }}">{{ categorie.id }}</a></td>
                 <td>
                    {{ categorie.title }}
                 <td>

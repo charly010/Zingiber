@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 //use Symfony\Component\Form\Extension\Core\Type\EntityType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextAreaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
@@ -32,6 +33,9 @@ class FilmType extends AbstractType
             'choice_label' => 'title',
             'required' => true,
             'query_builder' => $options['_queryBuilder'],
+        ])
+        ->add('imageFile', FileType::class, [
+            'required' => false,
         ]);
     }
     

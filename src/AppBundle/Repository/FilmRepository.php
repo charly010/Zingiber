@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Categorie;
+
 /**
  * FilmRepository
  *
@@ -10,4 +12,13 @@ namespace AppBundle\Repository;
  */
 class FilmRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllByCategorieQB(Categorie $categorie)
+    {
+    	$queryBuilder = $this->createQueryBuilder('f')
+            ->where('film.categorie = :categorie')
+            ->setParameter('categorie', $categorie)
+            ->orderBy('film.id');
+
+        return $queryBuilder;
+    }
 }
