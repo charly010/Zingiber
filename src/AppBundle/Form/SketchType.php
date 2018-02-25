@@ -28,6 +28,7 @@ class SketchType extends AbstractType
         ])
         ->add('imageFile', FileType::class, [
             'required' => false,
+            'label' => 'Image(JPG)',
         ])
         ->add('serie', EntityType::class, [
             'class' => Serie::class,

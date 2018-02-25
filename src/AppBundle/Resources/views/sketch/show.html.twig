@@ -28,7 +28,8 @@
             <tr>
                 <th>Aperçu</th>
                 <td>
-                    <img src="{{app.request.basepath}}/uploads/sketchs/{{ sketch.image }}" class="img-fluid" alt="Responsive image"/>
+                    <img src="{{asset('uploads/images/sketchs/' ~ sketch.image) }}" class="img-fluid" alt="Responsive image"/>
+                    {# <img src="{{ asset('uploads/images/sketchs/' ~ sketch.image) }}" height="100px" width="250px"> #}
                 </td>
             </tr>
             

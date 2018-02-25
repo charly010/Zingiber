@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
-            new Vich\UploaderBundle\VichUploaderBundle()
+            //https://maryamdev.blogspot.fr/2017/10/tuto-symfony-3-upload-dune-image-en.html
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

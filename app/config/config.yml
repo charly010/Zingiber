@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    images_directory: '%kernel.root_dir%/../web/uploads/images/sketchs'
 
 framework:
     #esi: ~
@@ -65,15 +66,4 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
-
-vich_uploader:
-    db_driver: orm
-    mappings:
-        sketch_images:
-            uri_prefix:         'app.path.sketch_images'
-            upload_destination: '%kernel.root_dir%/../web/uploads/images/sketchs'
-
-            inject_on_load: false
-            delete_on_update: true
-            delete_on_remove: true
 

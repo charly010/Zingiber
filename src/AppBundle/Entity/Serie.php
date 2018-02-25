@@ -32,7 +32,7 @@ class Serie
      /**
      * @ORM\OneToMany(
      *      targetEntity="Sketch",
-     *      mappedBy="collection",
+     *      mappedBy="serie",
      *      cascade={"persist", "remove", "merge"},
      *      orphanRemoval=true,
      * )

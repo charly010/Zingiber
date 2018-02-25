@@ -5,14 +5,12 @@ namespace AppBundle\Entity;
 use AppBundle\Entity\Serie;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Sketch
  *
  * @ORM\Table(name="sketch")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SketchRepository")
- * @Vich\Uploadable
  */
 class Sketch
 {
@@ -38,7 +36,6 @@ class Sketch
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
      * @var File
      */
     private $imageFile;

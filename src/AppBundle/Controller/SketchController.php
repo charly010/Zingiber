@@ -41,15 +41,6 @@ class SketchController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-            $file = $sketch->getImageFile();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move(
-                $this->getParameter('sketchs_directory'),
-                $fileName
-            );
-            $sketch->setImage($fileName);
             $em->persist($sketch);
             $em->flush();
 
