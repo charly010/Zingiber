@@ -62,6 +62,16 @@ class Serie
         return $this->sketchs;
     }
 
+    public function getFirstSketch()
+    {
+        foreach($this->sketchs as $sketch){
+            if ($sketch->getPage() === 1) {
+                return $sketch;
+            }
+        }
+        return $this->sketchs[0]; // bof
+    }
+
     public function __toString()
     {
         return (string)$this->getName();

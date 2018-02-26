@@ -1,0 +1,49 @@
+{% extends "@App/base.html.twig" %}
+
+{% block body %}
+
+{% include "@App/header.html.twig" %}
+
+    <main role="main">
+
+    <section class="jumbotron text-center" style="margin-bottom:0;">
+        <div class="container">
+          <h1 class="jumbotron-heading">Album example</h1>
+          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+          <p>
+            <a href="#" class="btn btn-primary my-2">Main call to action</a>
+            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+          </p>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+            {% for serie in series %}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <a href="{{ path('serie_read', { 'id': serie.id, 'page': 1 }) }}">
+                        <img src="{{asset('uploads/images/sketchs/' ~  serie.firstSketch.image) }}" class="card-img-top" alt="Card image cap" height="225px" width="100px" /></a>
+                            <div class="card-body">
+                                <p class="card-text">{{ serie.title }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ path('serie_show', { 'id': serie.id }) }}">Show</a>
+                                    <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ path('serie_edit', { 'id': serie.id }) }}">Edit</a>
+                                    </div>
+                                <small class="text-muted">{{ serie.sketchs|length }} pages</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    </main>
+
+    {% include "@App/footer.html.twig" %}
+
+{% endblock %}

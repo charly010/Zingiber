@@ -9,6 +9,12 @@ class FrontController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('@App/Front/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $series = $em->getRepository('AppBundle:Serie')->findAll();
+
+        return $this->render('@App/front/index.html.twig', array(
+            'series' => $series,
+        ));
     }
 }
